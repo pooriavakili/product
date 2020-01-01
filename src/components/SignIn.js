@@ -1,11 +1,42 @@
 import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { useHistory } from "react-router";
-import {Link} from 'react-router-dom'
 import Header from "./Header";
 import Footer from "./Footer";
 const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
+const labelEmail={
+    display:"flex",
+    justifyContent:"center",
+    marginTop:"10em"
+}
+const Email={
+    display:"flex",
+    justifyContent:"center",
+    marginTop:"1em"
+}
+const LabelPassword={
+    display:"flex",
+    justifyContent:"center",
+    marginTop:"1.5em"
+}
+const Password={
+    display:"flex",
+    justifyContent:"center",
+    marginTop:"1em"
+}
+const labelButton={
+    display:"flex",
+    justifyContent:"center",
+    marginTop:"1em"
+}
+const Button={
+    padding:"1em",
+    backgroundColor:"green",
+    color:"white"
+}
+const Footers={
+    marginTop:"11em"
+}
 function validateEmail(value) {
     if (value === "") return "Email is Required";
 
@@ -35,16 +66,8 @@ const SignIn = () => {
         >
             {formikProps => (
                 <Form>
-                    <label style={{
-                        display:"flex",
-                        justifyContent:"center",
-                        marginTop:"10em"
-                    }} htmlFor="email">Email</label>
-                    <div style={{
-                        display:"flex",
-                        justifyContent:"center",
-                        marginTop:"1em"
-                    }}>
+                    <label style={labelEmail} htmlFor="email">Email</label>
+                    <div style={Email}>
                         <Field
                             name="email"
                             validate={validateEmail}
@@ -53,18 +76,9 @@ const SignIn = () => {
                         />
                         <ErrorMessage name="email" />
                     </div>
-                    <label style={{
-                        display:"flex",
-                        justifyContent:"center",
-                        marginTop:"1.5em"
-                    }} htmlFor="email">Password</label>
-                    <div
-                        style={{
-                        display:"flex",
-                        justifyContent:"center",
-                            marginTop:"1em"
-
-                    }}>
+                    <label style={
+                        LabelPassword} htmlFor="email">Password</label>
+                    <div style={Password}>
                         <Field
                             name="password"
                             validate={validatePassword}
@@ -73,23 +87,13 @@ const SignIn = () => {
                         />
                         <ErrorMessage name="password" />
                     </div>
-                    <div style={{
-                        display:"flex",
-                        justifyContent:"center",
-                        marginTop:"1em"
-                    }}>
-                    <button style={{
-                        padding:"1em",
-                        backgroundColor:"green",
-                        color:"white"
-                    }} type="submit">Submit</button>
+                    <div style={labelButton}>
+                    <button style={Button}  type="submit">Submit</button>
                     </div>
                 </Form>
             )}
         </Formik>
-            <div style={{
-                marginTop:"11em"
-            }}>
+            <div style={Footers}>
             <Footer/>
             </div>
         </div>
